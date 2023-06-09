@@ -1,0 +1,1 @@
+# castelliromani-comune-component
