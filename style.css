@@ -1,0 +1,195 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+:root{
+    --clr-main-orange: hsl(23, 94%, 42%);
+    --clr-main-orange-darker: hsla(23, 100%, 20%, 1);
+    --clr-main-text: hsl(20, 7%, 17%);
+}
+
+body{
+    font-size: 1rem;
+    background-color: hsl(23, 94%, 95%);
+    color: var(--clr-main-text);
+}
+
+.wrapper{
+    display: grid;
+    place-content: center;
+    gap: 15px;
+    min-height: 100dvh;
+    padding: 5em 0em;
+}
+
+.component-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.comune-component{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    transition: all .2s ease-in-out;
+    box-shadow: 0px 5px 15px #7c7c7c;
+}
+
+.comune-component:hover{
+    transform: scale(105%);
+    z-index: 10;
+}
+
+.comune-component__header{
+    background-image: url(./assets/images/placeholder.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+
+.comune-component__header a{
+    display: block;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    content: "";
+    z-index: 1;
+}
+
+.comune-component__header .comune-component__comune-name{
+    padding: .25em 2.5em .25em 8em;
+    background-color: var(--clr-main-orange);
+    color: white;
+    width: max-content;
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.comune-component__header .comune-component__comune-name::before{
+    position: absolute;
+    content: "";
+    background-color: var(--clr-main-orange-darker);
+    width: 100px;
+    height: 24px;
+    top: -24px;
+    left: 13px;
+    z-index: -5;
+    transform: skewX(-45deg);
+}
+
+.comune-component__header .comune-component__comune-name span::after,
+.comune-component__header .comune-component__comune-name span::before{
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 100%;
+    background-color: var(--clr-main-orange);
+    top: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.comune-component__header .comune-component__comune-name span::after{
+    transform: skewX(25deg);
+}
+
+.comune-component__header .comune-component__comune-name span::before{
+    transform: skewX(-25deg);
+}
+
+.comune-component__header .comune-component__comune-name picture{
+    background-color: white;
+    padding: .25em;
+    border: 5px solid var(--clr-main-orange);
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2em;
+}
+
+.comune-component__header .comune-component__comune-name img{
+    width: 4em;
+    height: 4em;
+}
+
+.comune-component__latest{
+    padding: 2em 1em;
+}
+
+.comune-component__latest h4{
+    font-size: .75em;
+    text-align: right;
+    margin-bottom: .5em;
+}
+
+.comune-component__latest h2 a{
+    color: var(--clr-main-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+/* .comune-component__latest h2 a:hover{
+    text-decoration: underline;
+} */
